@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:helpdeskpgs_mobile/pages/login.dart';
-import 'package:helpdeskpgs_mobile/pages/splash.dart';
+import 'package:provider/provider.dart';
+import 'package:helpdeskpgs_mobile/presentation/dashboard.dart';
+import 'package:helpdeskpgs_mobile/provider/pengaduan_provider.dart';
+import 'package:helpdeskpgs_mobile/presentation/auth/login.dart';
+import 'package:helpdeskpgs_mobile/presentation/splash_screen/splash.dart';
 import 'package:helpdeskpgs_mobile/widgets/teks.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => PengaduanProvider())],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -15,14 +23,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'M-Helpdesk',
-      theme: ThemeData(
-        primaryColor: mainHijau
-      ),
+      theme: ThemeData(primaryColor: mainHijau, useMaterial3: true),
       initialRoute: '/splash',
       routes: {
         '/splash': (context) => SplashPage(),
         '/login': (context) => LoginPage(),
-        '/dashboard': (context) => DashboardPage(),
+        '/dashboard': (context) => BerandaPage(),
       },
     );
   }

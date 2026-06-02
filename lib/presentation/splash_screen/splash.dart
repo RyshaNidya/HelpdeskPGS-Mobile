@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:helpdeskpgs_mobile/pages/login.dart';
+import 'package:helpdeskpgs_mobile/presentation/auth/login.dart';
 import 'package:helpdeskpgs_mobile/widgets/teks.dart';
 
 class SplashPage extends StatefulWidget {
@@ -14,10 +14,12 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     super.initState();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      Future.delayed(const Duration(seconds: 1), () {
-        cekLogin();
-      });
+    // WidgetsBinding.instance.addPostFrameCallback((_) {
+
+    // });
+
+    Future.delayed(const Duration(seconds: 3), () {
+      cekLogin();
     });
   }
 
@@ -41,7 +43,7 @@ class _SplashPageState extends State<SplashPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/img/logo_noteks.png', width: 180),
+            Image.asset('assets/img/logo.png', width: 180),
             Text(
               'Bantuanku: M-Helpdesk',
               style: TextStyle(
